@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+}
+
+group = 'base.framework.selenium'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // JUnit
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.14.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-api:5.14.0'
+
+    // Selenium
+    implementation 'org.seleniumhq.selenium:selenium-java:4.36.0'
+
+    // Cucumber + JUnit
+    testImplementation 'io.cucumber:cucumber-java:7.28.0'
+    testImplementation 'io.cucumber:cucumber-junit:7.28.0'
+
+    // WebDriver Manager
+    implementation 'io.github.bonigarcia:webdrivermanager:5.9.2'
+
+    // slf4j
+    testImplementation 'org.slf4j:slf4j-simple:2.0.13'
+
+    // Log4j2
+    implementation 'org.apache.logging.log4j:log4j-api:2.23.1'
+    implementation 'org.apache.logging.log4j:log4j-core:2.23.1'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks.named('test') { 
+systemProperty "cucumber.options", System.getProperty("cucumber.options")
+systemProperties System.getProperties();
+}
