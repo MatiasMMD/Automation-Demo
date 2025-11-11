@@ -48,9 +48,16 @@ public class BasePage {
     }
 
     // Métodos con locators.
-
     public void clickElement (String locator){
-        find(locator).click();
+        int attempts = 0;
+        while(attempts < 2) {
+            try {
+                wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator))).click();
+                break;
+            } catch (org.openqa.selenium.StaleElementReferenceException e) {
+            }
+            attempts++;
+        }
     }
 
     public void submitElement(String locator){
@@ -155,7 +162,6 @@ public class BasePage {
     }
 
     // Métodos que usan locators para casos dinámicos.
-
     public String getValueFromTable (String locator, int row, int column){
         String cellINeed = locator+"/table/tbody/tr["+row+"]/td["+column+"]";
         return find(cellINeed).getText();

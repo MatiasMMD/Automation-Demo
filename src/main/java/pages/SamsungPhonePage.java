@@ -20,6 +20,10 @@ public class SamsungPhonePage extends BasePage{
     @FindBy(xpath = "//a[contains(text(),'Add to cart')]")
     private WebElement addToCartButton;
 
+    public void clickAddToCart(){
+        clickElement(addToCartButton);
+    }
+
     public boolean cartButtonDisplayed(){
         return elementIsDisplayed(addToCartButton);
     }

@@ -44,12 +44,6 @@ public class MainPage extends BasePage {
     @FindBy(id = "tbodyid")
     private WebElement productGrid;
 
-    @FindBy(xpath = "//a[contains(text(),'Phones')]")
-    private WebElement phoneCat;
-
-    @FindBy(xpath = "//a[contains(text(), 'Samsung galaxy s6')]")
-    private WebElement samsungPhone;
-
     public void navigateToDemoBlaze() {
         navigateTo("https://www.demoblaze.com/index.html");
     }
@@ -87,8 +81,14 @@ public class MainPage extends BasePage {
         clickElement(categoryLocator);
     }
 
-    public void clickSamsungPhone(){
-        clickElement(samsungPhone);
+    public void clickProduct(String productName) {
+        String productLocator = String.format("//a[text()='%s']", productName);
+        clickElement(productLocator);
+    }
+
+    public void clickProduct(String productName, String category) {
+        clickCategory(category);
+        clickElement(String.format("//a[text()='%s']", productName));
     }
 
     public String loginText (){

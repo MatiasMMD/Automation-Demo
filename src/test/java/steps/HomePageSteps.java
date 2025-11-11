@@ -76,9 +76,9 @@ public class HomePageSteps {
     }
 
     // TC-PROD-001
-    @When("the user clicks on the Samsung galaxy s6 product link")
-    public void clickSamsungPhone(){
-        mainPage.clickSamsungPhone();
+    @When("the user clicks on the {string} product link in the {string} category")
+    public void clickProductLink(String productName, String category){
+        mainPage.clickProduct(productName, category);
     }
 
     @Then("the user should be redirected to the product detail page")

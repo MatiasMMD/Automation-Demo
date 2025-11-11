@@ -37,7 +37,7 @@ Background:
 
 @Products
   Scenario: TC-PROD-001 - View product details
-    When the user clicks on the Samsung galaxy s6 product link
+    When the user clicks on the "Samsung galaxy s6" product link in the "Phones" category
     Then the user should be redirected to the product detail page
     And the product details for Samsung galaxy s6 should be displayed correctly
     And the Add to cart button should be visible
