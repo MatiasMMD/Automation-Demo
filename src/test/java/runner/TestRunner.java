@@ -8,8 +8,8 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
     features = "src\\test\\resources\\features",
     glue = "steps",
-    plugin = { "pretty" , "html:build/cucumber-reports/index.html" },
-    tags = "@AddToCart"
+    plugin = { "pretty" , "html:target/cucumber-reports" },
+    tags = "@Browsing or @AddToCart"
 )
 
 public class TestRunner {  

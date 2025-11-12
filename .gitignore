@@ -1,24 +1,45 @@
-# Compiled class file
+### Gradle ###
+.gradle/
+build/
+
+### IDEs ###
+# IntelliJ
+.idea/
+*.iml
+*.iws
+out/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# VSCode
+.vscode/
+
+### Build output ###
+# Compiled Java classes
 *.class
 
-# Log file
-*.log
+# Build output directory from IDEs
+bin/
 
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
+### Package Files ###
+# Ignore all JARs, WARs, and EARs...
 *.jar
 *.war
 *.ear
+# ...but DO NOT ignore the Gradle Wrapper jar, it's essential for the project
+!gradle/wrapper/gradle-wrapper.jar
 
-# Gradle
-.gradle
-build/
+### Logs and temp files ###
+*.log
+*.tmp
 
-# IDE
-.idea/
-*..iml
+### OS-generated files ###
+.DS_Store
+Thumbs.db
+
+### Sensitive data ###
+# Ignore credentials file
+credentials.properties

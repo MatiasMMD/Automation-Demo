@@ -1,6 +1,6 @@
 package utils;
 
-import java.io.FileInputStream;
+import java.io.InputStream;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -11,15 +11,20 @@ public class ConfigReader {
     private ConfigReader() {
         properties = new Properties();
         String[] propertyFiles = {
-            "src/main/resources/config.properties",
-            "src/main/resources/credentials.properties" 
+            "config.properties",
+            "credentials.properties" 
         };
 
         for (String filePath : propertyFiles) {
-            try (FileInputStream fis = new FileInputStream(filePath)) {
-                properties.load(fis);
-            } catch (IOException e) {
-                System.out.println("Warning: Property file not found: " + filePath + ". This might be expected for credentials.properties in some environments.");
+            try (InputStream input = getClass().getClassLoader().getResourceAsStream(filePath)) {
+                if (input == null) {
+                    System.out.println("Warning: Property file not found in classpath: " + filePath);
+                    continue;
+                }
+                properties.load(input);
+            } catch (IOException ex) {
+                System.err.println("Error loading property file: " + filePath);
+                ex.printStackTrace();
             }
         }
     }
@@ -36,7 +41,7 @@ public class ConfigReader {
         if (value != null) {
             return value;
         } else {
-            throw new RuntimeException("Property '" + key + "' not specified in the config.properties file.");
+            throw new RuntimeException("Property '" + key + "' not specified in any of the property files.");
         }
     }
 
