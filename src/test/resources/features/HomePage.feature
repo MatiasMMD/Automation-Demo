@@ -22,7 +22,8 @@ Background:
   Scenario: TC-NAV-003 - View "About us" modal
     When the user clicks the About us link in the navbar
     Then the About us modal should be displayed
-    And the video player inside the modal should be visible and playable
+    And the video player inside the modal should be visible
+    And the video player inside the modal should be playable
 
 @Categories
   Scenario Outline: TC-CAT-001 - Filter products by category

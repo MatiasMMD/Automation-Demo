@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -22,6 +23,9 @@ public class LoginModalPage extends BasePage{
     @FindBy(xpath = "//button[text()='Log in']")
     private WebElement loginModalButton;
 
+    @FindBy(id = "logInModal")
+    private WebElement loginModal;
+
     public void enterUsername (String username){
         clickElement(usernameLIForm);
         write(usernameLIForm, username);
@@ -40,5 +44,6 @@ public class LoginModalPage extends BasePage{
         write(usernameLIForm, username);
         write(passwordLIForm, password);
         clickElement(loginModalButton);
+        wait.until(ExpectedConditions.invisibilityOf(loginModal));
     }
 }

@@ -106,6 +106,10 @@ public class BasePage {
         }
     }
 
+    public boolean waitForElementToDisappear(String locator) {
+        return wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locator)));
+    }
+
     // Métodos con WebElement
 
     public void clickElement (WebElement element){

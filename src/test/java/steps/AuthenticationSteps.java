@@ -84,17 +84,17 @@ public class AuthenticationSteps {
 
     @Then("the Log in link should be visible in the navbar")
     public void loginDisplayed(){
-        mainPage.loginLinkDisplayed();
+        Assert.assertTrue("El link de 'Log in' debería estar visible después del logout.", mainPage.loginLinkDisplayed());
     }
 
     @And("the Sign up link should be visible in the navbar")
     public void signupDisplayed(){
-        mainPage.signupLinkDisplayed();
+        Assert.assertTrue("El link de 'Sign up' debería estar visible después del logout.", mainPage.signupLinkDisplayed());
     }
 
     @And("the Welcome text link should not be visible")
     public void welcomeTextNotDisplayed(){
-        mainPage.welcomeTextNotDisplayed();
+        Assert.assertFalse("El texto de bienvenida 'Welcome...' no debería estar visible después del logout.", mainPage.welcomeTextNotDisplayed());
     }
 
     // Verificación de alertas de popups Webs

@@ -8,19 +8,25 @@ import org.openqa.selenium.support.PageFactory;
 
 import utils.WebDriverSetup;
 
-public class SamsungPhonePage extends BasePage{
-    public SamsungPhonePage() {
+public class ProductDetailPage extends BasePage{
+    public ProductDetailPage() {
         super(WebDriverSetup.getDriver());
         PageFactory.initElements(new AjaxElementLocatorFactory(this.driver, (int) configReader.getExplicitWait()), this);
     }
 
+    @FindBy(className = "name")
+    private WebElement productNameTitle;
+
+    @FindBy(className = "price-container")
+    private WebElement productPrice;
+
     @FindBy(id = "more-information")
-    private WebElement phoneInfo;
+    private WebElement productDescription;
 
     @FindBy(xpath = "//a[contains(text(),'Add to cart')]")
     private WebElement addToCartButton;
 
-    public void clickAddToCart(){
+    public void clickAddToCartButton(){
         clickElement(addToCartButton);
     }
 
@@ -28,7 +34,17 @@ public class SamsungPhonePage extends BasePage{
         return elementIsDisplayed(addToCartButton);
     }
 
-    public boolean phoneInfo(){
-        return elementIsDisplayed(phoneInfo);
+    public String getProductName() {
+        return textFromElement(productNameTitle);
+    }
+
+    public String getProductPrice() {
+        return textFromElement(productPrice);
+    }
+
+    public double getProductPriceAsDouble() {
+        String priceText = getProductPrice();
+        String cleanedPrice = priceText.replaceAll("[^0-9]", "");
+        return Double.parseDouble(cleanedPrice);
     }
 }

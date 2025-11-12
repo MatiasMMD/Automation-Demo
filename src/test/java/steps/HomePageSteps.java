@@ -4,7 +4,7 @@ import io.cucumber.java.en.*;
 import org.junit.Assert;
 
 import pages.MainPage;
-import pages.SamsungPhonePage;
+import pages.ProductDetailPage;
 import pages.AboutUsModalPage;
 import pages.CartPage;
 import pages.ContactModalPage;
@@ -13,7 +13,7 @@ public class HomePageSteps {
     private MainPage mainPage = new MainPage();
     private ContactModalPage contactModalPage = new ContactModalPage();
     private AboutUsModalPage aboutUsModalPage = new AboutUsModalPage();
-    private SamsungPhonePage samsungPhonePage = new SamsungPhonePage();
+    private ProductDetailPage productDetailPage = new ProductDetailPage();
 
     // TC-NAV-001
     @Given("the user navigates to the Cart page")
@@ -28,7 +28,7 @@ public class HomePageSteps {
 
     @Then("the user should be redirected to the Home Page")
     public void homePageRedirect(){
-        mainPage.productGridDisplayed();
+        Assert.assertTrue("El usuario debería ser redirigido a la Home Page, pero la grilla de productos no es visible.", mainPage.productGridDisplayed());
     }
 
     // TC-NAV-002
@@ -39,7 +39,7 @@ public class HomePageSteps {
 
     @Then("the New message modal should be displayed")
     public void contactModalDisplayed(){
-        contactModalPage.messageModalDisplayed();
+        Assert.assertTrue("El modal 'New message' debería estar visible.", contactModalPage.messageModalDisplayed());
     }
 
     // TC-NAV-003
@@ -50,12 +50,17 @@ public class HomePageSteps {
 
     @Then("the About us modal should be displayed")
     public void aboutUsModalDisplayed(){
-        aboutUsModalPage.aboutUsModalDisplayed();
+        Assert.assertTrue("El modal 'About us' debería estar visible.", aboutUsModalPage.aboutUsModalDisplayed());
     }
 
-    @And("the video player inside the modal should be visible and playable")
+    @And("the video player inside the modal should be visible")
     public void aboutUsVideo(){
-        aboutUsModalPage.checkVideoAboutUs();
+        Assert.assertTrue("El reproductor de video en el modal 'About us' debería estar visible.", aboutUsModalPage.checkVideoAboutUs());
+    }
+
+    @And("the video player inside the modal should be playable")
+    public void playAboutUsVideo(){
+        aboutUsModalPage.playAboutUsVideo();
     }
 
     // TC-CAT-001
@@ -83,16 +88,16 @@ public class HomePageSteps {
 
     @Then("the user should be redirected to the product detail page")
     public void samsungPhonePage(){
-        Assert.assertTrue("El botón 'Add to cart' debería ser visible en la página de detalles del producto.", samsungPhonePage.cartButtonDisplayed());
+        Assert.assertTrue("El botón 'Add to cart' debería ser visible en la página de detalles del producto.", productDetailPage.cartButtonDisplayed());
     }
 
     @And("the product details for Samsung galaxy s6 should be displayed correctly")
     public void samsungInfoDisplayed(){
-        samsungPhonePage.phoneInfo();
+        Assert.assertEquals("Samsung galaxy s6", productDetailPage.getProductName());
     } 
 
     @And("the Add to cart button should be visible")
     public void addCartDisplayed(){
-        samsungPhonePage.cartButtonDisplayed();
+        Assert.assertTrue("El botón 'Add to cart' debería estar visible en la página de detalles del producto.", productDetailPage.cartButtonDisplayed());
     }
 }

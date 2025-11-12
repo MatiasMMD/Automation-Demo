@@ -88,7 +88,8 @@ public class MainPage extends BasePage {
 
     public void clickProduct(String productName, String category) {
         clickCategory(category);
-        clickElement(String.format("//a[text()='%s']", productName));
+        String productLocator = String.format("//a[text()='%s']", productName);
+        clickElement(productLocator);
     }
 
     public String loginText (){

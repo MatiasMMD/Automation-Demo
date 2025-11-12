@@ -23,8 +23,11 @@ public class AboutUsModalPage extends BasePage{
         return elementIsDisplayed(aboutUsModalMessage);
     }
 
-    public void checkVideoAboutUs(){
-        elementIsDisplayed(videoAboutUs);
+    public boolean checkVideoAboutUs(){
+        return elementIsDisplayed(videoAboutUs);
+    }
+
+    public void playAboutUsVideo(){
         clickElement(videoAboutUs);
     }
 }
