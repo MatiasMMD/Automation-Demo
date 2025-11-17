@@ -26,7 +26,7 @@ Este repositorio contiene un framework de automatización de pruebas para aplica
 ## 📚 Tabla de Contenidos
 
 - [Stack de Tecnologías](#%EF%B8%8F-stack-de-tecnolog%C3%ADas)
-- [Características Principales (Patrones de Diseño)](#-características-principales-design-patterns)
+- [Características Principales](#-características-principales-design-patterns)
 - [Configuración y Requisitos Previos](#%EF%B8%8F-configuración-y-requisitos-previos)
 - [Estructura del Proyecto](#-estructura-del-proyecto)
 - [Cómo Ejecutar las Pruebas](#-cómo-ejecutar-las-pruebas)
