@@ -3,7 +3,6 @@
 <p align="center">
 
   <a href="https://www.linkedin.com/in/mmarinodans/"><img src="https://img.shields.io/badge/LinkedIn-Mat%C3%ADas%20Marino-blue?style=flat&logo=linkedin" alt="LinkedIn Profile"></a>
-  <img src="https://img.shields.io/github/license/MatiasMMD/Automation-Demo?label=License" alt="License">
   <img src="https://img.shields.io/github/last-commit/MatiasMMD/Automation-Demo?label=Last%20commit" alt="Last Commit">
   <img src="https://img.shields.io/badge/Java-21-blue?logo=openjdk" alt="Java 21">
   <img src="https://img.shields.io/badge/Selenium-4-green?logo=selenium" alt="Selenium 4">
