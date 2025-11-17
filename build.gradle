@@ -38,9 +38,7 @@ java {
     }
 }
 
-tasks.named('test') {
-    useJUnitPlatform()
-    systemProperties(System.getProperties().findAll {
-        it.key.startsWith("cucumber")
-    })
+tasks.named('test') { 
+systemProperty "cucumber.options", System.getProperty("cucumber.options")
+systemProperties System.getProperties();
 }
