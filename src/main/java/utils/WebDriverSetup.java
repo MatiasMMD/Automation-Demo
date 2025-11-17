@@ -18,24 +18,36 @@ public class WebDriverSetup {
     public static void setup() {
         String browser = config.getBrowser().toLowerCase();
         WebDriver driverInstance;
+        boolean isCi = "true".equalsIgnoreCase(System.getenv("CI"));
 
         switch (browser) {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--start-maximized");
+                if (isCi) {
+                    chromeOptions.addArguments("--headless");
+                    chromeOptions.addArguments("--no-sandbox");
+                    chromeOptions.addArguments("--disable-dev-shm-usage");
+                    chromeOptions.addArguments("--window-size=1920,1080");
+                } else {
+                    chromeOptions.addArguments("--start-maximized");
+                }
                 driverInstance = new ChromeDriver(chromeOptions);
                 break;
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
-                firefoxOptions.addArguments("--start-maximized");
+                if (isCi) {
+                    firefoxOptions.addArguments("--headless");
+                }
                 driverInstance = new FirefoxDriver(firefoxOptions);
                 break;
             case "edge": 
                 WebDriverManager.edgedriver().setup();
                 EdgeOptions edgeOptions = new EdgeOptions();
-                edgeOptions.addArguments("--start-maximized");
+                if (isCi) {
+                    edgeOptions.addArguments("--headless");
+                }
                 driverInstance = new EdgeDriver(edgeOptions);
                 break;
             default:
@@ -43,7 +55,9 @@ public class WebDriverSetup {
         }
         webDriver.set(driverInstance);
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(config.getImplicitWait()));
-        getDriver().manage().window().maximize(); 
+        if (!isCi) {
+            getDriver().manage().window().maximize();
+        }
     }
 
     public static WebDriver getDriver() {
