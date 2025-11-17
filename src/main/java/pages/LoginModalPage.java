@@ -43,6 +43,7 @@ public class LoginModalPage extends BasePage{
     public void loginWithCredentials(String username, String password) {
         write(usernameLIForm, username);
         write(passwordLIForm, password);
-        clickElement(loginModalButton); 
+        clickElement(loginModalButton);
+        wait.until(ExpectedConditions.invisibilityOf(loginModal));
     }
 }
