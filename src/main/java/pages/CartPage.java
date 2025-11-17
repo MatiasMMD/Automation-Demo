@@ -23,8 +23,12 @@ public class CartPage extends BasePage {
     @FindBy(id = "totalp")
     private WebElement totalPriceLabel;
 
-    @FindBy(xpath = "//a[contains(text(),'Place Order')]")
+    @FindBy(xpath = "//button[text()='Place Order']")
     private WebElement placeOrderButton;
+
+    public void clickPlaceOrderButton(){
+        clickElement(placeOrderButton);
+    }
 
     public boolean productListed(String productName) {
         wait.until(ExpectedConditions.visibilityOf(cartTableBody));

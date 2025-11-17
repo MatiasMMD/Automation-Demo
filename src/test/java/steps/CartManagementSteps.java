@@ -7,7 +7,7 @@ import pages.CartPage;
 import pages.MainPage;
 import pages.ProductDetailPage;
 
-public class CartManagement {
+public class CartManagementSteps {
     private MainPage mainPage = new MainPage();
     private ProductDetailPage productDetailPage = new ProductDetailPage();
     private CartPage cartPage = new CartPage();
