@@ -55,7 +55,6 @@ public class PurchaseSteps {
 
     @And("the purchase details should be correct")
     public void purchaseDetailsCorrect(){
-
         Assert.assertTrue("El modal de confirmación de compra debería estar visible.", placeOrderModalPage.purchaseConfirmationDisplayed());
     }
 
