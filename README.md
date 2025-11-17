@@ -1,7 +1,7 @@
 <h1 align="center">🤖 Framework de Automatización de Pruebas BDD 🤖</h1>
 
 <p align="center">
-  <a href="https://github.com/MatiasMMD/Automation-Demo/actions/workflows/main.yml"><img src="https://github.com/MatiasMMD/Automation-Demo/actions/workflows/main.yml/badge.svg" alt="Build Status"></a>
+  <a href="https://github.com/MatiasMMD/Automation-Demo/actions/workflows/main.yml"><img src="https://github.com/MatiasMMD/Automation-Demo/actions/workflows/main.yml/badge.svg?branch=main" alt="Build Status"></a>
   <img src="https://img.shields.io/badge/Java-21-blue?logo=openjdk" alt="Java 21">
   <img src="https://img.shields.io/badge/Selenium-4-green?logo=selenium" alt="Selenium 4">
   <img src="https://img.shields.io/badge/Cucumber-7-green?logo=cucumber" alt="Cucumber 7">
@@ -19,7 +19,7 @@ Este repositorio contiene un framework de automatización de pruebas para aplica
   <br>
   <em>Demostración de la ejecución de una prueba E2E (Compra Exitosa)</em>
   <br>
-  <img src="URL_DE_TU_GIF_AQUI" alt="Demostración de Pruebas Automatizadas" width="800"/>
+  <img src="https://github.com/user-attachments/assets/6210c584-9520-4ea8-a738-92249deb9bc4" alt="Demostración de Pruebas Automatizadas" width="800"/>
 </p>
 
 
