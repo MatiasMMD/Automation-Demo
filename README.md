@@ -145,12 +145,12 @@ Puedes filtrar los escenarios a ejecutar pasando una etiqueta (tag) de Cucumber.
 El proyecto está configurado para aceptar propiedades del sistema y pasarlas a Cucumber.
 
 ```sh
-# Ejemplo: Ejecutar solo los escenarios con la etiqueta @Smoke
+# Ejemplo: Ejecutar solo los escenarios con la etiqueta @Authentication
 # Para Windows
-.\gradlew test -Dcucumber.filter.tags="@Smoke"
+.\gradlew test "-Dcucumber.filter.tags=@Authentication"
 
 # Para macOS/Linux
-./gradlew test -Dcucumber.filter.tags="@Smoke"
+./gradlew test "-Dcucumber.filter.tags=@Authentication"
 ```
 
 
