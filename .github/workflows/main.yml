@@ -35,3 +35,12 @@ jobs:
 
     - name: Run tests with Gradle
       run: ./gradlew test
+      env:
+        USERNAME: ${{ secrets.USERNAME }}
+        PASSWORD: ${{ secrets.PASSWORD }}
+        NAME: ${{ secrets.NAME }}
+        COUNTRY: ${{ secrets.COUNTRY }}
+        CITY: ${{ secrets.CITY }}
+        CREDITCARD: ${{ secrets.CREDITCARD }}
+        MONTH: ${{ secrets.MONTH }}
+        YEAR: ${{ secrets.YEAR }}

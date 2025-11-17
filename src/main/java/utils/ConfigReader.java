@@ -37,12 +37,15 @@ public class ConfigReader {
     }
 
     public String getProperty(String key) {
-        String value = properties.getProperty(key);
-        if (value != null) {
-            return value;
-        } else {
-            throw new RuntimeException("Property '" + key + "' not specified in any of the property files.");
+        String envVarKey = key.toUpperCase().replace('.', '_');
+        String value = System.getenv(envVarKey);
+        if (value == null || value.isEmpty()) {
+            value = properties.getProperty(key);
         }
+        if (value == null)
+            throw new RuntimeException("Property '" + key + "' not found in environment variables or property files.");
+
+        return value;
     }
 
     public String getBrowser() { return getProperty("browser"); }
