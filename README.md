@@ -13,7 +13,7 @@
 
 
 
-Este repositorio contiene un framework de automatización de pruebas para aplicado a la página web [DemoBlaze](https://www.demoblaze.com/index.html), construido con Java y Selenium. El proyecto está diseñado para ser robusto, escalable y fácil de mantener, siguiendo las mejores prácticas de la industria.
+Este repositorio contiene un framework de automatización de pruebas aplicado a la página web [DemoBlaze](https://www.demoblaze.com/index.html), construido con Java y Selenium. El proyecto está diseñado para ser robusto, escalable y fácil de mantener, siguiendo las mejores prácticas de la industria.
 
 **Objetivo Principal:** Este proyecto funciona como una suite de pruebas de regresión que valida las funcionalidades principales de la página web DemoBlaze (autenticación, navegación, gestión del carrito y proceso de compra). Adicionalmente, su propósito es demostrar la implementación de patrones de diseño clave como **Page Object Model (POM)** y la metodología **Behavior-Driven Development (BDD)** con Cucumber, sirviendo como una pieza de portafolio para exhibir mis habilidades técnicas en automatización de QA.
 
@@ -46,7 +46,7 @@ Este proyecto utiliza un conjunto de herramientas y librerías modernas para el 
 | **Selenium WebDriver** | 4.36.0 | Automatización de interacciones con el navegador. |
 | **Cucumber** | 7.28.0 | Implementación de BDD para escribir pruebas en Gherkin. |
 | **JUnit** | 5.14.0 | Framework para la ejecución de pruebas. |
-| **Gradle** | - | Herramienta de automatización de compilación y gestión de dependencias. |
+| **Gradle** | 8.5 | Herramienta de automatización de compilación y gestión de dependencias. |
 | **WebDriverManager** | 5.9.2 | Gestión automática de los drivers de navegador (chromedriver, geckodriver, etc.). |
 | **Log4j2** | 2.23.1 | Sistema de logging para registrar eventos durante la ejecución. |
 
@@ -70,7 +70,7 @@ Sigue estos pasos para configurar y ejecutar el proyecto en tu equipo local.
 
 - **Java Development Kit (JDK):** Versión 21 o superior.
 - **Gradle:** Instalado en tu sistema y disponible en el PATH, o puedes usar el Gradle Wrapper (`gradlew`) incluido en el proyecto.
-- **IDE (Opcional):** IntelliJ IDEA o Eclipse con soporte para Gradle.
+- **IDE (Opcional):** VS Code, IntelliJ IDEA o Eclipse con soporte para Gradle.
 
 ### Instalación
 
@@ -108,7 +108,7 @@ El proyecto sigue una estructura estándar de Maven/Gradle que separa claramente
 │   │   ├── java/
 │   │   │   ├── pages/    # Implementación del Page Object Model. Cada clase representa una página y sus interacciones.
 │   │   │   └── utils/    # Clases de utilidad (WebDriverSetup, ConfigReader, ActionsHelper).
-│   │   └── resources/    # Archivos de configuración y propiedades del framework.
+│   │   └── resources/
 │   │       ├── config.properties                 # Centraliza la configuración del navegador(URL base, timeouts).
 │   │       ├── credentials.properties.example    # Muestra un ejemplo de la estructura de las credenciales requeridas para los test.
 │   │       └── log4j2.xml                        # Configuración de la dependencia de log4j2.
@@ -121,7 +121,8 @@ El proyecto sigue una estructura estándar de Maven/Gradle que separa claramente
 ├── build.gradle          # Define las dependencias, plugins y tareas del proyecto.
 ├── gradlew               # Script de ejecución del Gradle Wrapper para macOS/Linux.
 ├── gradlew.bat           # Script de ejecución del Gradle Wrapper para Windows.
-└── README.md             # Este archivo.
+├── LICENSE               # Archivo de licencia de MIT.
+└── README.md             
 ```
 
 ## 🚀 Cómo Ejecutar las Pruebas
@@ -142,7 +143,7 @@ Este comando buscará el `TestRunner` y ejecutará todos los escenarios de prueb
 
 ### Ejecutar pruebas por Tags
 
-Puedes filtrar los escenarios a ejecutar pasando una etiqueta (tag) de Cucumber. Esto es útil para ejecutar conjuntos específicos de pruebas (ej. `smoke`, `regression`, `login`).
+Puedes filtrar los escenarios a ejecutar pasando una etiqueta (tag) de Cucumber. Esto es útil para ejecutar conjuntos específicos de pruebas (ej. `authentication`, `browsing`, `purchase`).
 
 El proyecto está configurado para aceptar propiedades del sistema y pasarlas a Cucumber.
 
@@ -175,8 +176,3 @@ Para una inmersión profunda en el "esqueleto" de este framework y una explicaci
 **➡️ [Base Automation Framework v1.0 ](https://github.com/MatiasMMD/Base-Framework-v1.0)**
 
 Este recurso complementario explica cómo cada pieza del rompecabezas se une para crear un entorno de automatización robusto y escalable.
-
-
-## ✍️ Autor
-
-- **LinkedIn:** [Matías Marino Dans](https://www.linkedin.com/in/mmarinodans/)
